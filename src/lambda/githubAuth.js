@@ -5,7 +5,7 @@ const clientId = process.env.CLIENT_ID;
 const clientSecret = process.env.CLIENT_SECRET;
 
 exports.handler = async function(event) {
-  const code = event.path.replace("/githubAuth/", "");
+  const code = event.path.replace("/.netlify/functions/githubAuth/", "");
   const body = {
     client_id: clientId,
     client_secret: clientSecret,
