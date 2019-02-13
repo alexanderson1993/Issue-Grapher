@@ -4,11 +4,9 @@ import GitHubLogin from "react-github-login";
 const GithubLogin = ({ setToken }) => {
   const onSuccess = response => {
     const { code } = response;
-    console.log(code);
     fetch(`/.netlify/functions/githubAuth/${code}`)
       .then(res => res.json())
       .then(({ token }) => {
-        console.log(token);
         setToken(token);
       });
   };

@@ -3,7 +3,6 @@ import * as d3 from "d3";
 import timeseries from "d3-timeseries";
 
 const Chart = ({ issues }) => {
-  console.log(issues);
   const chartRef = React.useRef();
   React.useLayoutEffect(() => {
     const chart = timeseries()

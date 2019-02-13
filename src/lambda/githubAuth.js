@@ -22,8 +22,7 @@ exports.handler = async function(event) {
       } else reject(error);
     });
   });
-  console.log(code);
-  console.log(token);
+
   return {
     statusCode: 200,
     body: JSON.stringify({ token })
