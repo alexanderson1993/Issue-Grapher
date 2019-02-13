@@ -5,15 +5,26 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "d3": "^5.9.1",
+    "d3-timeseries": "^1.0.1",
+    "node-fetch": "^2.3.0",
     "react": "16.8.0",
     "react-dom": "16.8.0",
     "react-github-login": "^1.0.3",
-    "react-scripts": "2.0.3"
+    "react-scripts": "2.0.3",
+    "request": "^2.88.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "http-proxy-middleware": "^0.19.1",
+    "netlify-lambda": "^1.4.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run start:client && npm run start:lambda",
+    "start:client": "react-scripts start",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build": "npm run build:client && npm run build:lambda",
+    "build:client": "react-scripts build",
+    "build:lambda": "netlify-lambda build src/lambda",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
